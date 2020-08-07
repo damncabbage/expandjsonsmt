@@ -23,6 +23,13 @@
 
     <name>Kafka Schema Registry Download</name>
 
+    <repositories>
+        <repository>
+            <id>confluent</id>
+            <url>http://packages.confluent.io/maven/</url>
+        </repository>
+    </repositories>
+
     <pluginRepositories>
         <pluginRepository>
             <id>confluent</id>
