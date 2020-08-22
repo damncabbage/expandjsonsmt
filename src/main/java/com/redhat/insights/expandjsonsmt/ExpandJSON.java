@@ -79,6 +79,14 @@ abstract class ExpandJSON<R extends ConnectRecord<R>> implements Transformation<
     private R applyWithSchema(R record) {
         try {
             Object recordValue = operatingValue(record);
+
+            LOGGER.info("###############/");
+            LOGGER.info("Record value:");
+            LOGGER.info(record.toString());
+            LOGGER.info(record.valueSchema().toString());
+            LOGGER.info(record.keySchema().toString());
+            LOGGER.info("/###############");
+
             if (recordValue == null) {
                 LOGGER.info("Expandjson record is null");
                 LOGGER.info(record.toString());

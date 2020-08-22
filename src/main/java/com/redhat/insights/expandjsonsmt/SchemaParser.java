@@ -26,7 +26,7 @@ class SchemaParser {
     }
 
     private static SchemaBuilder bsonDocument2SchemaBuilder(BsonDocument doc) {
-        final SchemaBuilder schemaBuilder = SchemaBuilder.struct().optional();
+        final SchemaBuilder schemaBuilder = SchemaBuilder.struct(); // TODO: .optional();
         if (doc != null) {
             for(Entry<String, BsonValue> entry : doc.entrySet()) {
                 addFieldSchema(entry, schemaBuilder);
@@ -57,7 +57,7 @@ class SchemaParser {
         case JAVASCRIPT:
         case OBJECT_ID:
         case DECIMAL128:
-            return Schema.OPTIONAL_STRING_SCHEMA;
+            return Schema.STRING_SCHEMA;
 
         case DOUBLE:
             return Schema.OPTIONAL_FLOAT64_SCHEMA;
@@ -67,11 +67,11 @@ class SchemaParser {
 
         case INT32:
         case TIMESTAMP:
-            return Schema.OPTIONAL_INT32_SCHEMA;
+            return Schema.INT32_SCHEMA;
 
         case INT64:
         case DATE_TIME:
-            return Schema.OPTIONAL_INT64_SCHEMA;
+            return Schema.INT64_SCHEMA;
 
         case BOOLEAN:
             return Schema.OPTIONAL_BOOLEAN_SCHEMA;
